@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div id="container"></div>
+
+    <script>
+        var cars = [
+            { rok: 2015, przebieg: 50000, cena_wyjsciowa: 25000, cena_koncowa: 22000 },
+            { rok: 2018, przebieg: 30000, cena_wyjsciowa: 30000, cena_koncowa: 28000 },
+            { rok: 2020, przebieg: 20000, cena_wyjsciowa: 35000, cena_koncowa: 32000 }
+        ];
+
+        var table = document.createElement('table');
+        var headerRow = table.insertRow();
+        var headers = ['Rok', 'Przebieg', 'Cena wyjściowa', 'Cena końcowa'];
+
+        headers.forEach(function(header) {
+            var th = document.createElement('th');
+            th.textContent = header;
+            headerRow.appendChild(th);
+        });
+
+        cars.forEach(function(car) {
+            var row = table.insertRow();
+            Object.values(car).forEach(function(value) {
+                var cell = row.insertCell();
+                cell.textContent = value;
+            });
+        });
+
+        document.getElementById('container').appendChild(table);
+    </script>
+</body>
+</html>

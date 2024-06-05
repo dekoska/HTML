@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <button id="button1">Next div</button>
+        <button id="button2">Delete div</button>
+        <button id="button3">Change color</button>
+        <button id="button4">New text</button>
+    <div id="cont1">container 1</div>
+    <div id="cont2">container 2</div>
+    <div id="cont3">container 3</div>
+    <div id="cont4">container 4</div>
+
+<script>
+    document.getElementById("button1").addEventListener('click', function() {
+        var newDiv = document.createElement('div');
+        newDiv.classList.add('new-div');
+        newDiv.textContent = 'next container';
+        document.getElementsByTagName('body')[0].appendChild(newDiv);
+    });
+
+    document.getElementById("button2").addEventListener('click', function() {
+        var firstDiv = document.querySelector('div');
+            if (firstDiv) {
+                firstDiv.remove();
+            }
+    });
+
+    document.getElementById("button3").addEventListener('click', function() {
+        var divs = document.querySelectorAll("body > div");
+            if (divs.length >= 3) {
+                divs[2].style.backgroundColor = "lightblue";
+            }
+    });
+
+    document.getElementById("button4").addEventListener('click', function() {
+        var divs = document.querySelectorAll("body > div");
+            divs.forEach(function(div) {
+                div.textContent = "New text";
+            });
+        });
+
+</script>
+
+</body>
+</html>

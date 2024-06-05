@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+           display: flex;
+           min-height: 100vh;
+           margin: 0; 
+           align-items: center;
+       }
+
+       .row {
+           display: grid;
+           grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+           grid-gap: 10px;
+       }
+
+     
+       .row img {
+           width: 100%; 
+           height: auto; 
+           cursor: pointer;
+       }
+
+       .modal {
+           display: none;
+           position: fixed;
+           z-index: 1;
+           padding-top: 50px;
+           left: 0;
+           top: 0;
+           width: 100%;
+           height: 100%;
+           overflow: auto;
+           background-color: black;
+       }
+
+       .modal-content {
+           position: relative;
+           background-color: #fefefe;
+           margin: auto;
+           padding: 0;
+           width: 90%;
+           max-width: 1200px;
+       }
+
+       .close {
+           color: white;
+           position: absolute;
+           top: 10px;
+           right: 25px;
+           font-size: 35px;
+           font-weight: bold;
+           cursor: pointer;
+       }
+
+       .close:hover {
+           color: #999;
+       }
+
+       .mySlides {
+           display: none;
+       }
+
+       .prev,
+       .next {
+           cursor: pointer;
+           position: absolute;
+           top: 50%;
+           width: auto;
+           padding: 16px;
+           margin-top: -50px;
+           color: white;
+           font-weight: bold;
+           font-size: 20px;
+           transition: 0.6s ease;
+           border-radius: 0 3px 3px 0;
+           user-select: none;
+           -webkit-user-select: none;
+       }
+
+       .next {
+           right: 0;
+           border-radius: 3px 0 0 3px;
+       }
+
+       .prev:hover,
+       .next:hover {
+           background-color: rgba(0, 0, 0, 0.8);
+       }
+
+       .numbertext {
+           color: #f2f2f2;
+           font-size: 12px;
+           padding: 8px 12px;
+           position: absolute;
+           top: 0;
+       }
+
+       .caption-container {
+           text-align: center;
+           background-color: black;
+           padding: 2px 16px;
+           color: white;
+       }
+
+       .modal-content .caption-container p {
+           margin: 0;
+       }
+
+       .initial-column {
+           display: flex;
+           align-items: center;
+           justify-content: center;
+       }
+   </style>
+</head>
+<body>
+    <div class="row">
+        <div class="column initial-column">
+            <img src="https://catinaflat.blog/wp-content/uploads/2023/09/cat-scratching-furniture.jpg" onclick="openModal();currentSlide(1)" class="hover-shadow">
+        </div>
+        <div class="column">
+            <img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" onclick="openModal();currentSlide(2)" class="hover-shadow">
+        </div>
+        <div class="column">
+            <img src="https://s.yimg.com/ny/api/res/1.2/rhRgOeUbj17Ke5.yq8DZJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTMyMA--/https://media.zenfs.com/en/woman_s_day_132/e875f93097fbdc63e36c90c028fe3da6" onclick="openModal();currentSlide(3)" class="hover-shadow">
+        </div>
+        <div class="column">
+            <img src="https://www.washingtonpost.com/resizer/7tLgbjOZeTsaTiPuxZ1DaxKbWOA=/arc-anglerfish-washpost-prod-washpost/public/FPGDGYJXM56KI5CTHHDX3DN2WQ.jpg" onclick="openModal();currentSlide(4)" class="hover-shadow">
+        </div>
+    </div>
+
+    <div id="myModal" class="modal">
+        <span class="close cursor" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <div class="mySlides">
+                <div class="numbertext">1 / 4</div>
+                <img src="https://www.wfla.com/wp-content/uploads/sites/71/2023/05/GettyImages-1389862392.jpg?w=2560&h=1440&crop=1" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">2 / 4</div>
+                <img src="https://catinaflat.blog/wp-content/uploads/2023/09/cat-scratching-furniture.jpg" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">3 / 4</div>
+                <img src="https://s.yimg.com/ny/api/res/1.2/rhRgOeUbj17Ke5.yq8DZJw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTY0MDtoPTMyMA--/https://media.zenfs.com/en/woman_s_day_132/e875f93097fbdc63e36c90c028fe3da6" style="width:100%">
+            </div>
+            <div class="mySlides">
+                <div class="numbertext">4 / 4</div>
+                <img src="https://www.washingtonpost.com/resizer/7tLgbjOZeTsaTiPuxZ1DaxKbWOA=/arc-anglerfish-washpost-prod-washpost/public/FPGDGYJXM56KI5CTHHDX3DN2WQ.jpg" style="width:100%">
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <div class="caption-container">
+                <p id="caption"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+        function showSlides(n) {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("demo");
+            var captionText = document.getElementById("caption");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            captionText.innerHTML = dots[slideIndex - 1].alt;
+        }
+    </script>
+</body>
+</html>

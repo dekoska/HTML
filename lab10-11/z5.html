@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style> 
+        .button {
+        background-color: #eee;
+        color: #444;
+        width: 100%;
+        height: 50px;
+        text-align: left;
+        border: none;
+        font-size: 20px;
+        }
+
+        .active, .button:hover {
+        background-color: #347bd1;
+        }
+
+        .panel {
+        background-color: white;
+        max-height: 0;
+        display: none;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <button class="button">Section 1</button>
+        <p class="panel">Murzynek Bambo w Afryce mieszka,<br>
+            czarną ma skórę ten nasz koleżka.<br>
+            Uczy się pilnie przez całe ranki<br>
+            Ze swej murzyńskiej pierwszej czytanki.<br>
+            A gdy do domu ze szkoły wraca,<br>
+            Psoci, figluje - to jego praca.<br>
+            Aż mama krzyczy: "Bambo, łobuzie!''<br>
+            A Bambo czarną nadyma buzię.<br>
+            Mama powiada:"Napij się mleka"<br>
+            A on na drzewo mamie ucieka.<br>
+            Mama powiada :"Chodź do kąpieli",<br>
+            A on się boi że się wybieli.<br>
+            Lecz mama kocha swojego synka.<br>
+            Bo dobry chłopak z tego murzynka.<br>
+            Szkoda że Bambo czarny , wesoły<br>
+            nie chodzi razem z nami do szkoły.</p>
+    </div>
+    <div class="section">
+        <button class="button">Section 2</button>
+        <p class="panel">Murzynek Bambo w Afryce mieszka,<br>
+            czarną ma skórę ten nasz koleżka.<br>
+            Uczy się pilnie przez całe ranki<br>
+            Ze swej murzyńskiej pierwszej czytanki.<br>
+            A gdy do domu ze szkoły wraca,<br>
+            Psoci, figluje - to jego praca.<br>
+            Aż mama krzyczy: "Bambo, łobuzie!''<br>
+            A Bambo czarną nadyma buzię.<br>
+            Mama powiada:"Napij się mleka"<br>
+            A on na drzewo mamie ucieka.<br>
+            Mama powiada :"Chodź do kąpieli",<br>
+            A on się boi że się wybieli.<br>
+            Lecz mama kocha swojego synka.<br>
+            Bo dobry chłopak z tego murzynka.<br>
+            Szkoda że Bambo czarny , wesoły<br>
+            nie chodzi razem z nami do szkoły.</p>
+    </div>
+    <div class="section">
+        <button class="button">Section 3</button>
+        <p class="panel">Murzynek Bambo w Afryce mieszka,<br>
+            czarną ma skórę ten nasz koleżka.<br>
+            Uczy się pilnie przez całe ranki<br>
+            Ze swej murzyńskiej pierwszej czytanki.<br>
+            A gdy do domu ze szkoły wraca,<br>
+            Psoci, figluje - to jego praca.<br>
+            Aż mama krzyczy: "Bambo, łobuzie!''<br>
+            A Bambo czarną nadyma buzię.<br>
+            Mama powiada:"Napij się mleka"<br>
+            A on na drzewo mamie ucieka.<br>
+            Mama powiada :"Chodź do kąpieli",<br>
+            A on się boi że się wybieli.<br>
+            Lecz mama kocha swojego synka.<br>
+            Bo dobry chłopak z tego murzynka.<br>
+            Szkoda że Bambo czarny , wesoły<br>
+            nie chodzi razem z nami do szkoły.</p>
+    </div>
+    <div class="section">
+        <button class="button">Section 4</button>
+        <p class="panel">Murzynek Bambo w Afryce mieszka,<br>
+            czarną ma skórę ten nasz koleżka.<br>
+            Uczy się pilnie przez całe ranki<br>
+            Ze swej murzyńskiej pierwszej czytanki.<br>
+            A gdy do domu ze szkoły wraca,<br>
+            Psoci, figluje - to jego praca.<br>
+            Aż mama krzyczy: "Bambo, łobuzie!''<br>
+            A Bambo czarną nadyma buzię.<br>
+            Mama powiada:"Napij się mleka"<br>
+            A on na drzewo mamie ucieka.<br>
+            Mama powiada :"Chodź do kąpieli",<br>
+            A on się boi że się wybieli.<br>
+            Lecz mama kocha swojego synka.<br>
+            Bo dobry chłopak z tego murzynka.<br>
+            Szkoda że Bambo czarny , wesoły<br>
+            nie chodzi razem z nami do szkoły.</p>
+    </div>
+
+    <script>
+      var buttons = document.getElementsByClassName("button");
+
+    for (var i = 0; i < buttons.length; i++) {
+        buttons[i].addEventListener("click", function() {
+            var panel = this.nextElementSibling;
+            if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                panels[j].style.display = 'none';
+            } else {
+                closeAllPanels();
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                panel.style.display = 'inline';
+            }
+        });
+    }
+
+    function closeAllPanels() {
+        var panels = document.getElementsByClassName("panel");
+        for (var j = 0; j < panels.length; j++) {
+            panels[j].style.maxHeight = null;
+            panels[j].style.display = 'none';
+        }
+    }
+        
+    </script>
+</body>
+</html>
